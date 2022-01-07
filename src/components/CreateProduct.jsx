@@ -4,7 +4,7 @@ import { addProduct } from "../redux/action/ProductsAction";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 
-Modal.setAppElement('#yourAppElement');
+// Modal.setAppElement('#yourAppElement');
 const customStyles = {
   content: {
     top: '50%',
