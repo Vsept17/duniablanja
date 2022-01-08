@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import { deleteProduct } from "../redux/action";
 
 const Products = ({ state }) => {
-  
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
+  // const location = useLocation();
+  // console.log("location", location());
 
   const handleDeleteProduct = (e) => {
     e.preventDefault();
-        return dispatch(deleteProduct(e));
+    return dispatch(deleteProduct(e));
   };
 
   return (
@@ -55,10 +57,39 @@ const Products = ({ state }) => {
                     <p>{stock}</p>
                   </div>
                   <div className="flex flex-row justify-between p-2">
-                    <button className="bg-yellow-400 px-4 py-2 rounded-xl">
+                    <Link
+                      to={{
+                        pathname: "/create-product",
+                        props: {
+                          image,
+                          productName,
+                          buyPrice,
+                          sellPrice,
+                          stock,
+                          getId,
+                        },
+                      }}
+                      // onClick={() =>
+                      //   navigate("/create-product", {
+                      //     replace: true,
+
+                      //       image,
+                      //       productName,
+                      //       buyPrice,
+                      //       sellPrice,
+                      //       stock,
+                      //       getId,
+
+                      //   })
+                      // }
+                      className="bg-yellow-400 px-4 py-2 rounded-xl"
+                    >
                       Edit
-                    </button>
-                    <button onClick={(e) => handleDeleteProduct(e, getId)} className="bg-red-600 px-4 py-2 rounded-xl text-white">
+                    </Link>
+                    <button
+                      onClick={(e) => handleDeleteProduct(e, getId)}
+                      className="bg-red-600 px-4 py-2 rounded-xl text-white"
+                    >
                       Delete
                     </button>
                   </div>

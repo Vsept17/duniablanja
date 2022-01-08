@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 import { useId } from "react-id-generator";
 
 const Product = () => {
-  const [addProduct, setAddProduct] = useState(true);
   const [getId, setGetId] = useState(useId());
   const [image, setImage] = useState("");
   const [productName, setProductName] = useState("");
@@ -30,7 +29,7 @@ const Product = () => {
   };
   return (
     <div>
-      <Navbar setAddProduct={setAddProduct} addProduct={addProduct} />
+      <Navbar />
       <div className="container mx-auto">
         <CreateProduct
           getId={getId}
